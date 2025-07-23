@@ -43,110 +43,110 @@ class DSMPApi:
         self.session = requests.session()
         self.session.headers.update({"Authorization": f"Bearer {self.api_key}"})
         
-    def getAuctionRequest(self, item_id, sorting_mode = DSMPApiSorting.lowest_price, page = 0):
+    def getAuctionRequest(self, item_id, sorting_mode = DSMPApiSorting.lowest_price, page = 1):
         search_params = {}
         search_params["search"] = item_id
         search_params["sort"] = sorting_mode
-        response = self.session.get(DSMPApiUrls["auction"]["list"] + page, json=search_params)
+        response = self.session.get(DSMPApiUrls["auction"]["list"] + str(page), json=search_params)
         if (response.status_code == 200):
             return (response.status_code, response.json())
         else:
-            return (response.status_code, json.load({}))
+            return (response.status_code, json.loads("{}"))
         
     def getAuctionTransaction(self, page = 1):
-        response = self.session.get(DSMPApiUrls["auction"]["transactions"] + page)
+        response = self.session.get(DSMPApiUrls["auction"]["transactions"] + str(page))
         if (response.status_code == 200):
             return (response.status_code, response.json())
         else:
-            return (response.status_code, json.load({}))
+            return (response.status_code, json.loads("{}"))
 
-    def getLeaderboardBrokenBlocks(self, page = 0):
-        response = self.session.get(DSMPApiUrls["leaderboards"]["brokenblocks"] + page)
+    def getLeaderboardBrokenBlocks(self, page = 1):
+        response = self.session.get(DSMPApiUrls["leaderboards"]["brokenblocks"] + str(page))
         if (response.status_code == 200):
             return (response.status_code, response.json())
         else:
-            return (response.status_code, json.load({}))
+            return (response.status_code, json.loads("{}"))
 
-    def getLeaderboardDeaths(self, page = 0):
-        response = self.session.get(DSMPApiUrls["leaderboards"]["deaths"] + page)
+    def getLeaderboardDeaths(self, page = 1):
+        response = self.session.get(DSMPApiUrls["leaderboards"]["deaths"] + str(page))
         if (response.status_code == 200):
             return (response.status_code, response.json())
         else:
-            return (response.status_code, json.load({}))
+            return (response.status_code, json.loads("{}"))
 
-    def getLeaderboardKills(self, page = 0):
-        response = self.session.get(DSMPApiUrls["leaderboards"]["kills"] + page)
+    def getLeaderboardKills(self, page = 1):
+        response = self.session.get(DSMPApiUrls["leaderboards"]["kills"] + str(page))
         if (response.status_code == 200):
             return (response.status_code, response.json())
         else:
-            return (response.status_code, json.load({}))
+            return (response.status_code, json.loads("{}"))
 
-    def getLeaderboardMobsKilled(self, page = 0):
-        response = self.session.get(DSMPApiUrls["leaderboards"]["mobskilled"] + page)
+    def getLeaderboardMobsKilled(self, page = 1):
+        response = self.session.get(DSMPApiUrls["leaderboards"]["mobskilled"] + str(page))
         if (response.status_code == 200):
             return (response.status_code, response.json())
         else:
-            return (response.status_code, json.load({}))
+            return (response.status_code, json.loads("{}"))
 
-    def getLeaderboardMoney(self, page = 0):
-        response = self.session.get(DSMPApiUrls["leaderboards"]["money"] + page)
+    def getLeaderboardMoney(self, page = 1):
+        response = self.session.get(DSMPApiUrls["leaderboards"]["money"] + str(page))
         if (response.status_code == 200):
             return (response.status_code, response.json())
         else:
-            return (response.status_code, json.load({}))
+            return (response.status_code, json.loads("{}"))
 
-    def getLeaderboardPlacedBlocks(self, page = 0):
-        response = self.session.get(DSMPApiUrls["leaderboards"]["placedblocks"] + page)
+    def getLeaderboardPlacedBlocks(self, page = 1):
+        response = self.session.get(DSMPApiUrls["leaderboards"]["placedblocks"] + str(page))
         if (response.status_code == 200):
             return (response.status_code, response.json())
         else:
-            return (response.status_code, json.load({}))
+            return (response.status_code, json.loads("{}"))
 
-    def getLeaderboardPlaytime(self, page = 0):
-        response = self.session.get(DSMPApiUrls["leaderboards"]["playtime"] + page)
+    def getLeaderboardPlaytime(self, page = 1):
+        response = self.session.get(DSMPApiUrls["leaderboards"]["playtime"] + str(page))
         if (response.status_code == 200):
             return (response.status_code, response.json())
         else:
-            return (response.status_code, json.load({}))
+            return (response.status_code, json.loads("{}"))
 
-    def getLeaderboardSell(self, page = 0):
-        response = self.session.get(DSMPApiUrls["leaderboards"]["sell"] + page)
+    def getLeaderboardSell(self, page = 1):
+        response = self.session.get(DSMPApiUrls["leaderboards"]["sell"] + str(page))
         if (response.status_code == 200):
             return (response.status_code, response.json())
         else:
-            return (response.status_code, json.load({}))
+            return (response.status_code, json.loads("{}"))
 
-    def getLeaderboardShards(self, page = 0):
-        response = self.session.get(DSMPApiUrls["leaderboards"]["shards"] + page)
+    def getLeaderboardShards(self, page = 1):
+        response = self.session.get(DSMPApiUrls["leaderboards"]["shards"] + str(page))
         if (response.status_code == 200):
             return (response.status_code, response.json())
         else:
-            return (response.status_code, json.load({}))
+            return (response.status_code, json.loads("{}"))
 
-    def getLeaderboardShop(self, page = 0):
-        response = self.session.get(DSMPApiUrls["leaderboards"]["shop"] + page)
+    def getLeaderboardShop(self, page = 1):
+        response = self.session.get(DSMPApiUrls["leaderboards"]["shop"] + str(page))
         if (response.status_code == 200):
             return (response.status_code, response.json())
         else:
-            return (response.status_code, json.load({}))
+            return (response.status_code, json.loads("{}"))
 
     def userLookup(self, user):
-        response = self.session.get(DSMPApiUrls["lookup"] + user)
+        response = self.session.get(DSMPApiUrls["lookup"] + str(user))
         if (response.status_code == 200):
             return (response.status_code, response.json())
         else:
-            return (response.status_code, json.load({}))
+            return (response.status_code, json.loads("{}"))
 
     def getShieldMetrics(self, service_id):
-        response = self.session.get(DSMPApiUrls["shield"] + service_id)
+        response = self.session.get(DSMPApiUrls["shield"] + str(service_id))
         if (response.status_code == 200):
             return (response.status_code, response.json())
         else:
-            return (response.status_code, json.load({}))
+            return (response.status_code, json.loads("{}"))
 
     def getPlayerStatistics(self, user):
-        response = self.session.get(DSMPApiUrls["statistics"] + user)
+        response = self.session.get(DSMPApiUrls["statistics"] + str(user))
         if (response.status_code == 200):
             return (response.status_code, response.json())
         else:
-            return (response.status_code, json.load({}))
+            return (response.status_code, json.loads("{}"))
