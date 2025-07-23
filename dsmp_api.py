@@ -40,7 +40,7 @@ class DSMPApi:
         if (api_key == None):
             raise Exception("No API key provided.")
         self.api_key = api_key
-        self.session = resquests.session()
+        self.session = requests.session()
         self.session.headers.update({"Authorization": f"Bearer {self.api_key}"})
         
     def getAuctionRequest(self, item_id, sorting_mode = DSMPApiSorting.lowest_price, page = 0):
